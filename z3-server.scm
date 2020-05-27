@@ -25,16 +25,18 @@
     (z3-check-in!)
     (let ([r (read z3-in)])
       (when log-all-calls (printf ";; ~a\n" r))
-      (if (eq? r 'sat)
-          #t
-          (if (eq? r 'unsat)
-              #f
-              (if (eq? r 'unknown)
-                  (begin
-                    (printf "read-sat: unknown\n")
-                    ;;(call-z3 '((pop)))
-                    #f)
-                  (error 'read-sat (format "~a" r))))))))
+      r
+      ;(if (eq? r 'sat)
+          ;#t
+          ;(if (eq? r 'unsat)
+              ;#f
+              ;(if (eq? r 'unknown)
+                  ;(begin
+                    ;(printf "read-sat: unknown\n")
+                    ;;;(call-z3 '((pop)))
+                    ;#f)
+                  ;(error 'read-sat (format "~a" r)))))
+      )))
 
 (define call-z3
   (lambda (xs)
